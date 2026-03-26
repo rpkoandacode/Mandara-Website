@@ -1,0 +1,148 @@
+/* Hero Section */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;       /* readable size */
+  line-height: 1.6;      /* good spacing */
+  color: #333;           /* neutral text color */
+  background-color: #fcfbf4 !important;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, li, button {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.navbar {
+    background-color: whitesmoke;
+    font-weight: 500;
+    font-size: 18px;
+}
+.navbar .nav-link{
+    color: black;
+}
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  background-image: url('images/great-wall-among-mist.jpg.webp'); /* remove trailing slash */
+  background-size: cover;       /* make image cover entire div */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat; /* avoid repetition */
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+/* Optional: dark overlay to make text more readable */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* adjust opacity */
+  z-index: 0;
+}
+
+/* Ensure text and buttons are above overlay */
+.hero-section * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-img-top {
+  height: 150px;          /* fixed height for all chapter images */
+  width: 100%;            /* full width of card */
+  object-fit: contain;    /* scale image proportionally to fit */
+  padding: 10px;          /* optional spacing inside the card */
+  background-color: #fcfbf4; /* optional: light background behind image */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.card-title{
+    font-size: 28px;
+}
+
+.card-text{
+    font-size: 24px;
+}
+
+.chapter-title{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.translation{
+  font-size: 18px;
+}
+
+.go-button {
+  display: block;        /* so we can center it */
+  width:200px;           /* small width */
+  margin: 15px auto 0;   /* top margin + centered */
+  padding: 10px 2px;        /* small padding */
+  text-align: center;
+  text-decoration: none;
+  background: #0d3d62;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.go-button:hover {
+  background: #4a90e2;
+}
+
+/* Question Card */
+.question {
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  font-size: 20px;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Radio buttons spacing */
+.question label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Playful button */
+button {
+  background: #4d0efa;   /* soft blue */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #4a90e2;   /* darker on hover */
+}
+
+/* Result feedback */
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
