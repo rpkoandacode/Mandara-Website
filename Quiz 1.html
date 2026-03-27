@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 1 | Mandara </title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="quiz">
+        <p>Drag the correct word into the blank</p>
+
+        <div class="choices">
+            <span draggable="true" class="word">爱护</span>
+            <span draggable="true" class="word">等待</span>
+            <span draggable="true" class="word">递</span>
+        </div>
+
+        <div class="question">
+            <p>1. 他从小就<span class="blank" data-answer="爱护"></span>小宠物。</p>
+            <p class="result"></p>
+        </div>
+
+        <div class="question">
+            <p>2. 他一直在门口 <span class="blank" data-answer="等待"></span> 朋友。</p>
+            <p class="result"></p>
+        </div>
+
+        <div class="question">
+            <p>3. 请把书 <span class="blank" data-answer="递"></span> 给我。</p>
+            <p class="result"></p>
+        </div>
+
+        <button onclick="submitQuiz()">Submit Quiz</button>
+        <p id="score"></p>
+
+    </div>
+    
+</body>
+</html>
