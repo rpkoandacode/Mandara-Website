@@ -146,3 +146,69 @@ button:hover {
   font-size: 16px;
   color: #333;
 }
+
+.quiz {
+  width: 80%;
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* choices */
+.quiz .choices {
+  margin-bottom: 20px;
+}
+
+.quiz .word {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 5px;
+  background: #eee;
+  border-radius: 5px;
+  cursor: grab;
+}
+
+/* blanks */
+.quiz .blank {
+  display: inline-block;
+  width: 80px;
+  border-bottom: 2px solid black;
+  text-align: center;
+  margin: 0 5px;
+  min-height: 20px;
+}
+
+/* questions */
+.quiz .question {
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.quiz .result {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* button */
+.quiz button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz button:hover {
+  background: #333;
+}
+
+/* score */
+.quiz #score {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
