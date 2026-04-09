@@ -214,10 +214,17 @@ button:hover {
 }
 
 .arrange {
-    margin-top: 30px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
 }
 
-#words, #answer {
+.arrange #words,
+.arrange #answer {
     border: 2px dashed #ccc;
     padding: 10px;
     min-height: 50px;
