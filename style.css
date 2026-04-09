@@ -239,6 +239,11 @@ button:hover {
     cursor: grab;
 }
 
-#answer {
-    background-color: #fafafa;
+
+.answer-box {
+  border: 2px dashed #ccc;
+  min-height: 50px;      /* makes it droppable */
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fafafa;
 }
