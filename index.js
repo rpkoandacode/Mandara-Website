@@ -51,18 +51,18 @@ document.querySelectorAll(".item").forEach(item => {
 })
 
 //allow drop into answer box
-const answerBox = document.querySelector(".answer-box");
-
-if (answerBox){
-  answerBox.addEventListener("dragover", (e) => {
-    e.preventDefault();
+// allow drop into all answer boxes
+document.querySelectorAll(".answer-box").forEach(box => {
+  box.addEventListener("dragover", (e) => {
+    e.preventDefault(); // allow drop
   });
-  answerBox.addEventListener("drop", () => {
-    if(draggedItem){
-      answerBox.appendChild(draggedItem);
+
+  box.addEventListener("drop", () => {
+    if (draggedItem) {
+      box.appendChild(draggedItem); // move dragged word here
     }
-  })
-}
+  });
+});
 
 // submit quiz
 
