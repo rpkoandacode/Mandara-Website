@@ -212,3 +212,26 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
 }
+
+.arrange {
+    margin-top: 30px;
+}
+
+#words, #answer {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    min-height: 50px;
+    margin-bottom: 10px;
+}
+
+.item {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    cursor: grab;
+}
+
+#answer {
+    background-color: #fafafa;
+}
