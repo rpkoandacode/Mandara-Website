@@ -220,7 +220,6 @@ button:hover {
     cursor: grab;
 }
 
-
 .answer-box {
   border: 2px dashed #ccc;
   min-height: 50px;      /* makes it droppable */
