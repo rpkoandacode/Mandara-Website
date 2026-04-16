@@ -43,28 +43,6 @@ document.querySelectorAll(".answer-box").forEach(box => {
   });
 });
 
-// ✅ handle MCQ questions
-document.querySelectorAll(".mcq-question").forEach(q => {
-  const selected = q.querySelector('input[type="radio"]:checked');
-  const result = q.querySelector(".result");
-  const correct = result.dataset.answer;
-
-  if (!selected) {
-    result.innerText = "⚠️ Please select an answer.";
-    result.style.color = "orange";
-    return;
-  }
-
-  if (selected.value === correct) {
-    result.innerText = "✅ Correct!";
-    result.style.color = "green";
-    score++;
-  } else {
-    result.innerText = `❌ Wrong! 正确答案是：${correct}`;
-    result.style.color = "red";
-  }
-});
-
 // submit quiz
 
 function submitQuiz() {
@@ -90,21 +68,18 @@ function submitQuiz() {
     }
   });
 
-  // ✅ handle arrange question
-  const arrangeQ = document.querySelector(".arrange-question");
+  document.querySelectorAll(".mcq-question").forEach(q => {
+    const selected = q.querySelector('input[type="radio"]:checked');
+    const result = q.querySelector(".result");
+    const correct = result.dataset.answer;
 
-  if (arrangeQ) {
-    const correct = arrangeQ.dataset.answer;
-    const result = arrangeQ.querySelector(".result");
+    if (!selected) {
+      result.innerText = "⚠️ Please select an answer.";
+      result.style.color = "orange";
+      return;
+    }
 
-    const words = arrangeQ.querySelectorAll(".answer-box .item");
-    let userAnswer = "";
-
-    words.forEach(w => {
-      userAnswer += w.innerText;
-    });
-
-    if (userAnswer === correct) {
+    if (selected.value === correct) {
       result.innerText = "✅ Correct!";
       result.style.color = "green";
       score++;
@@ -112,9 +87,35 @@ function submitQuiz() {
       result.innerText = `❌ Wrong! 正确答案是：${correct}`;
       result.style.color = "red";
     }
-  }
+  });
 
-  const totalQuestions = document.querySelectorAll(".question").length;
-  document.querySelector(".quiz #score").innerText =
-    `Your score: ${score}/${totalQuestions}`;
-}
+  // arrange question
+
+  const arrangeQ = document.querySelector(".arrange-question");
+
+  if (arrangeQ) {
+    const correct = arrangeQ.dataset.answer;
+    const result = arrangeQ.querySelector(".result");
+
+    const words = arrangeQ.querySelectorAll(".answer-box .item");
+    let userAnswer = Array.from(words).map(w => w.innerText).join("");
+
+    if (userAnswer === correct) {
+      result.innerText = "✅ Correct!";
+      result.style.color = "green";
+      score++;
+      } else {
+      result.innerText = `❌ Wrong! 正确答案是：${correct}`;
+      result.style.color = "red";
+      }
+    }
+
+  // score
+    const total =
+      document.querySelectorAll(".quiz .blank").length +
+      document.querySelectorAll(".mcq-question").length +
+      document.querySelectorAll(".arrange-question").length;
+
+    document.querySelector("#score").innerText =
+      `Your score: ${score}/${total}`;
+  }
