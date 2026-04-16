@@ -82,7 +82,7 @@ function submitQuiz() {
 
     const blank = q.querySelector(".blank");
     const result = q.querySelector(".result");
-    const correct = q.dataset.answer;
+    const correct = blank.dataset.answer;
 
 
     if (blank.innerText.trim() === correct) {
