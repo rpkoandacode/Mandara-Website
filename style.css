@@ -231,7 +231,7 @@ button:hover {
   background-color: #fafafa;
 }
 
-.mcq-question {
+.question.mcq-question {
   margin: 30px auto;
   padding: 20px;
   border: 1px solid #ddd;
