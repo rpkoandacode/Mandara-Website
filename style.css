@@ -152,11 +152,14 @@ button:hover {
 /* blanks */
 .quiz .blank {
   display: inline-block;
-  width: 80px;
-  border-bottom: 2px solid black;
+  min-width: 90px;
+  border-bottom: 2px solid #333;
   text-align: center;
-  margin: 0 5px;
-  min-height: 20px;
+  margin: 0 6px;
+  padding: 0 4px;
+  min-height: 24px;
+  vertical-align: baseline;
+  font-weight: 500;
 }
 
 /* questions */
