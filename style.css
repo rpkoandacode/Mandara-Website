@@ -147,7 +147,9 @@ button:hover {
   background: #fff;
   border-radius: 5px;
   cursor: grab;
+  font-size: 17px;   /* add this to increase font size */
 }
+
 
 /* blanks */
 .quiz .blank {
@@ -164,13 +166,13 @@ button:hover {
 
 /* questions */
 .quiz .question {
-  margin: 30px auto;
+  margin: 12px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
-  font-size: 20px;
+  font-size: 17px;
   background-color: #fff;
 }
 
