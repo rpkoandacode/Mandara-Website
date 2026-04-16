@@ -1,14 +1,14 @@
 // quiz
-let draggedWord = "";
+let draggedWordEl = null;
 
 // drag start
 document.querySelectorAll(".quiz .word").forEach(word => {
   word.addEventListener("dragstart", (e) => {
-    draggedWord = e.target.innerText;
+    draggedWordEl = e.target;
   });
 });
 
-// allow drop
+// allow drop into blanks
 document.querySelectorAll(".quiz .blank").forEach(blank => {
   blank.addEventListener("dragover", (e) => {
     e.preventDefault();
@@ -16,9 +16,34 @@ document.querySelectorAll(".quiz .blank").forEach(blank => {
 
   blank.addEventListener("drop", (e) => {
     e.preventDefault();
-    blank.innerText = draggedWord;
+    if (!draggedWordEl) return;
+
+    // if this blank already had a word, return it to the choices list
+    const oldText = blank.innerText.trim();
+    if (oldText) {
+      const quiz = blank.closest(".quiz");
+      const choices = quiz.querySelector(".choices");
+      const oldSpan = document.createElement("span");
+      oldSpan.className = "word";
+      oldSpan.draggable = true;
+      oldSpan.innerText = oldText;
+      choices.appendChild(oldSpan);
+
+      // reattach dragstart to the new word
+      oldSpan.addEventListener("dragstart", (e2) => {
+        draggedWordEl = e2.target;
+      });
+    }
+
+    // set new word in blank
+    blank.innerText = draggedWordEl.innerText;
+
+    // remove the dragged word from choices
+    draggedWordEl.remove();
+    draggedWordEl = null;
   });
 });
+
 
 let draggedItem = null;
 
@@ -29,16 +54,17 @@ document.querySelectorAll(".item").forEach(item => {
   })
 })
 
-//allow drop into answer box
 // allow drop into all answer boxes
 document.querySelectorAll(".answer-box").forEach(box => {
   box.addEventListener("dragover", (e) => {
     e.preventDefault(); // allow drop
   });
 
-  box.addEventListener("drop", () => {
+  box.addEventListener("drop", (e) => {
+    e.preventDefault();
     if (draggedItem) {
-      box.appendChild(draggedItem); // move dragged word here
+      box.appendChild(draggedItem);
+      draggedItem = null;
     }
   });
 });
@@ -51,12 +77,13 @@ function submitQuiz() {
   // normal fill-in-the-blank questions
   document.querySelectorAll(".quiz .question").forEach(q => {
 
-    // skip arrange question
     if (q.classList.contains("arrange-question")) return;
+    if (q.classList.contains("mcq-question")) return;
 
     const blank = q.querySelector(".blank");
     const result = q.querySelector(".result");
-    const correct = blank.dataset.answer;
+    const correct = q.dataset.answer;
+
 
     if (blank.innerText.trim() === correct) {
       result.innerText = "✅ Correct!";
@@ -71,7 +98,7 @@ function submitQuiz() {
   document.querySelectorAll(".mcq-question").forEach(q => {
     const selected = q.querySelector('input[type="radio"]:checked');
     const result = q.querySelector(".result");
-    const correct = result.dataset.answer;
+    const correct = q.dataset.answer;
 
     if (!selected) {
       result.innerText = "⚠️ Please select an answer.";
@@ -118,4 +145,5 @@ function submitQuiz() {
 
     document.querySelector("#score").innerText =
       `Your score: ${score}/${total}`;
+
   }
