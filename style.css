@@ -73,8 +73,9 @@ body, h1, h2, h3, h4, h5, h6, p, a, li, button {
 
 .chapter-title{
     text-align: center;
-    font-size: 30px;
-    margin-top: 15px;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .translation{
@@ -134,10 +135,13 @@ button:hover {
   margin: 40px auto;
   font-family: Arial, sans-serif;
 }
+.quiz p {
+  font-size: 17px;
+}
 
 /* choices */
 .quiz .choices {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .quiz .word {
@@ -166,13 +170,13 @@ button:hover {
 
 /* questions */
 .quiz .question {
-  margin: 12px auto;
+  margin: 15px auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
   width: 90%;
   max-width: 500px;
-  font-size: 17px;
+  font-size: 16px;
   background-color: #fff;
 }
 
